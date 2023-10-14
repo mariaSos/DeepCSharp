@@ -27,7 +27,9 @@
 
 
                 if (l[current.Item1, current.Item2] == 1) continue;
-      
+                
+                //Определить сколько всего выходов имеется в лабиринте:
+
                 if (l[current.Item1, current.Item2] == 0 && (current.Item1 == l.GetLength(0) - 1 | current.Item2 == l.GetLength(1) - 1) | current.Item1 == 0 | current.Item2 == 0)
                 {
                     count++;
