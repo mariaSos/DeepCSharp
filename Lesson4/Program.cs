@@ -13,18 +13,18 @@
 
             var s = new HashSet<int>();
 
-            foreach (int j in arr)
+            foreach (int i in arr)
             {
-                foreach (int i in arr)
+                foreach (int j in arr)
                 {
-                    var x = target - i - j;
+                    var x = target - j - i;
                     if (s.Contains(x))
                     {
-                        Console.WriteLine($"{target} = {x} + {i} + {j} ");
+                        Console.WriteLine($"{target} = {x} + {j} + {i} ");
                     }
                     else
                     {
-                        s.Add(i);
+                        s.Add(j);
                     }
                 }
             }
