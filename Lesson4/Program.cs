@@ -18,9 +18,7 @@
             {
                 for (int j = i + 1; j < arr.Length; j++)
                 {
-                    
                     var x = target - arr[j] - arr[i];
-                    
                     
                     if (s.Contains(x) & x < arr[j] & x < arr[i] & x != arr[j] & x != arr[i])
                     {
