@@ -9,16 +9,16 @@
         {
             int[] arr = {6, 2, 3, 7, 8, 9, 10, 22,20, 30, 40, 50, 60, 70, 80, 90, 100,110 };
 
-            int target = 118;
+            int target = 116;
 
             var s = new HashSet<int>();
-
+            s.Add(arr[0]);
+            
             for (int i = 0; i < arr.Length; i++)
             {
-           
                 for (int j = i + 1; j < arr.Length; j++)
                 {
-                    s.Add(arr[0]);
+                    
                     var x = target - arr[j] - arr[i];
                     
                     
