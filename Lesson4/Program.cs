@@ -3,30 +3,35 @@
     //Дан массив и число.Найдите три числа в массиве сумма которых равна искомому числу.
     //Подсказка: если взять первое число в массиве, 
      //можно ли найти в оставшейся его части два числа равных по сумме первому.
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            int[] arr = { 1, 2, 3, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+            int[] arr = {6, 2, 3, 7, 8, 9, 10, 22,20, 30, 40, 50, 60, 70, 80, 90, 100,110 };
 
-            int target = 189;
+            int target = 118;
 
             var s = new HashSet<int>();
 
-            foreach (int i in arr)
+            for (int i = 0; i < arr.Length; i++)
             {
-                foreach (int j in arr)
+           
+                for (int j = i + 1; j < arr.Length; j++)
                 {
-                    var x = target - j - i;
-                    if (s.Contains(x))
+                    s.Add(arr[0]);
+                    var x = target - arr[j] - arr[i];
+                    
+                    
+                    if (s.Contains(x) & x < arr[j] & x < arr[i] & x != arr[j] & x != arr[i])
                     {
-                        Console.WriteLine($"{target} = {x} + {j} + {i} ");
+                        Console.WriteLine($"{target} = {x}  + {arr[i]} +  {arr[j]} ");
                     }
                     else
                     {
-                        s.Add(j);
+                        s.Add(arr[j]);
                     }
                 }
+
             }
         }
     }
