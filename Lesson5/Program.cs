@@ -72,11 +72,17 @@
             SendResult();
         }
 
-        public int EnterNum()
+        public int EnterNum(out bool exit)
         {
+            exit = false;
             Console.WriteLine("Введите число!");
             var num = Console.ReadLine();
-            return int.Parse(num);
+            if (num != "")
+            {
+              return int.Parse(num);
+            }
+            exit = true;
+            return 0;
         }
 
         private void SendResult()
@@ -87,7 +93,9 @@
 
 
     }
-
+    //Доработайте программу калькулятор реализовав выбор действий и вывод
+    //результатов на экран в цикле так чтобы калькулятор мог работать до тех пор
+    //пока пользователь не нажмет отмена или введёт пустую строку.
     internal class Program
     {
 
@@ -100,8 +108,10 @@
 
             float result = 0;
             var input = "";
-             while (input !="6")
+            bool exit = false;
+             while (input !="6" & exit == false )
              {
+                Console.WriteLine(exit);
                 Console.WriteLine("Список допустимых операций:");
                 Console.WriteLine("1 - сложение");
                 Console.WriteLine("2 - вычитание");
@@ -116,16 +126,16 @@
                      switch (input)
                      {
                          case "1":
-                             c.Add(c.EnterNum());
+                             c.Add(c.EnterNum(out exit));
                              break;
                          case "2":
-                             c.Sub(c.EnterNum());
+                             c.Sub(c.EnterNum(out exit));
                              break;
                          case "3":
-                             c.Div(c.EnterNum());
+                             c.Div(c.EnterNum(out exit));
                              break;
                          case "4":
-                             c.Mul(c.EnterNum());
+                             c.Mul(c.EnterNum(out exit));
                             break;
                          case "5":
                          c.CancelLast();
