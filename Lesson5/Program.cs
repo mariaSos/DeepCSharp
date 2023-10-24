@@ -111,7 +111,6 @@
             bool exit = false;
              while (input !="6" & exit == false )
              {
-                Console.WriteLine(exit);
                 Console.WriteLine("Список допустимых операций:");
                 Console.WriteLine("1 - сложение");
                 Console.WriteLine("2 - вычитание");
