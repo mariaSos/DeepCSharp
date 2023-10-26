@@ -33,7 +33,6 @@
 
         private static void Calculator_GotResult(object? sender, EventArgs e)
         {
-            Console.SetCursorPosition(1, 1);
             Console.WriteLine(((Calculator)sender).Result);
         }
     }

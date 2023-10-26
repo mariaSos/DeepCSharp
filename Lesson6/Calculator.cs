@@ -16,13 +16,18 @@ namespace Lesson6
 
         public Stack<CalculatorActionLog> actionStack = new Stack<CalculatorActionLog>();
 
+        private void AddStack (float val)
+        {
+            stack.Push(Result);
+            actionStack.Push(new CalculatorActionLog(CalculatorAction.Add, val));
+        }
+
         /*---------------------Сложение------------------------------------------------*/
         public void Add(int i) // +=
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Add, i));
+                AddStack(i);
                 Result += i;
                 GotResult(this, new EventArgs());
             }
@@ -36,8 +41,7 @@ namespace Lesson6
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Add, i));
+                AddStack(i);
                 Result += i;
                 GotResult(this, new EventArgs());
             }
@@ -52,8 +56,7 @@ namespace Lesson6
         {
             try
             {
-                c.stack.Push(c.Result);
-                c.actionStack.Push(new CalculatorActionLog(CalculatorAction.Add, val));
+                c.AddStack(val);
                 c.Result += val;
                 c.GotResult(c, new EventArgs());
             }
@@ -81,9 +84,7 @@ namespace Lesson6
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Div, i));
-
+                AddStack(i);
                 Result /= i;
                 GotResult(this, new EventArgs());
             }
@@ -97,9 +98,7 @@ namespace Lesson6
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Div, i));
-
+                AddStack(i);
                 Result /= i;
                 GotResult(this, new EventArgs());
             }
@@ -113,8 +112,7 @@ namespace Lesson6
         {
             try
             {
-                c.stack.Push(c.Result);
-                c.actionStack.Push(new CalculatorActionLog(CalculatorAction.Add, val));
+                c.AddStack(val);
                 c.Result /= val;
                 c.GotResult(c, new EventArgs());
             }
@@ -131,8 +129,7 @@ namespace Lesson6
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Mul, i));
+                AddStack(i);
                 Result *= i;
                 GotResult(this, new EventArgs());
             }
@@ -146,8 +143,7 @@ namespace Lesson6
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Mul, i));
+                AddStack(i);
                 Result *= i;
                 GotResult(this, new EventArgs());
             }
@@ -161,8 +157,7 @@ namespace Lesson6
         {
             try
             {
-                c.stack.Push(c.Result);
-                c.actionStack.Push(new CalculatorActionLog(CalculatorAction.Add, val));
+                c.AddStack(val);
                 c.Result *= val;
                 c.GotResult(c, new EventArgs());
             }
@@ -179,9 +174,7 @@ namespace Lesson6
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Sub, i));
-
+                AddStack(i);
                 Result -= i;
                 GotResult(this, new EventArgs());
             }
@@ -195,9 +188,7 @@ namespace Lesson6
         {
             try
             {
-                stack.Push(Result);
-                actionStack.Push(new CalculatorActionLog(CalculatorAction.Sub, i));
-
+                AddStack(i);
                 Result -= i;
                 GotResult(this, new EventArgs());
             }
@@ -211,8 +202,7 @@ namespace Lesson6
         {
             try
             {
-                c.stack.Push(c.Result);
-                c.actionStack.Push(new CalculatorActionLog(CalculatorAction.Add, val));
+                c.AddStack(val);
                 c.Result -= val;
                 c.GotResult(c, new EventArgs());
             }
