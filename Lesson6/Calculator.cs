@@ -9,7 +9,8 @@ namespace Lesson6
     class Calculator
     {
         public event EventHandler<EventArgs> GotResult;
-        public float Result { get; set; }
+        
+        public float Result { get; private set; }
 
         public Stack<float> stack = new Stack<float>();
 
@@ -31,8 +32,7 @@ namespace Lesson6
             }
         }
 
-
-        public void Add(float i) // +=
+        public void Add(float i) 
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Lesson6
 
         }
 
-        public static float operator +(Calculator c, float val) // +=
+        public static float operator +(Calculator c, float val) 
         {
             try
             {
@@ -64,8 +64,6 @@ namespace Lesson6
 
             return val;
         }
-
-
 
         /*Отмена последней операции*/
         public void CancelLast()
@@ -88,7 +86,6 @@ namespace Lesson6
             GotResult(this, new EventArgs());
         }
 
-
         public void Div(float i)
         {
             stack.Push(Result);
@@ -98,8 +95,7 @@ namespace Lesson6
             GotResult(this, new EventArgs());
         }
 
-
-        public static float operator /(Calculator c, float val) // +=
+        public static float operator /(Calculator c, float val) 
         {
             try
             {
@@ -124,6 +120,7 @@ namespace Lesson6
             Result *= i;
             GotResult(this, new EventArgs());
         }
+
         public void Mul(float i)
         {
             stack.Push(Result);
@@ -132,7 +129,7 @@ namespace Lesson6
             GotResult(this, new EventArgs());
         }
 
-        public static float operator *(Calculator c, float val) // +=
+        public static float operator *(Calculator c, float val) 
         {
             try
             {
@@ -158,6 +155,7 @@ namespace Lesson6
             Result -= i;
             GotResult(this, new EventArgs());
         }
+
         public void Sub(float i)
         {
             stack.Push(Result);
@@ -167,7 +165,7 @@ namespace Lesson6
             GotResult(this, new EventArgs());
         }
 
-        public static float operator -(Calculator c, float val) // +=
+        public static float operator -(Calculator c, float val) 
         {
             try
             {
