@@ -28,7 +28,7 @@ namespace Lesson6
             }
             catch (Exception e)
             {
-                throw new CalculatorException("Продумайте сообщения", e, actionStack.ToList());
+                throw new CalculatorException("Ошибка сложения", e, actionStack.ToList());
             }
         }
 
@@ -43,7 +43,7 @@ namespace Lesson6
             }
             catch (Exception e)
             {
-                throw new CalculatorException("Продумайте сообщения", e, actionStack.ToList());
+                throw new CalculatorException("Ошибка сложения", e, actionStack.ToList());
             }
 
         }
@@ -59,7 +59,7 @@ namespace Lesson6
             }
             catch (Exception e)
             {
-                throw new CalculatorException("Продумайте сообщения", e, c.actionStack.ToList());
+                throw new CalculatorException("Ошибка сложения", e, c.actionStack.ToList());
             }
 
             return val;
@@ -79,20 +79,34 @@ namespace Lesson6
         /*----------Деление-------------------*/
         public void Div(int i)
         {
-            stack.Push(Result);
-            actionStack.Push(new CalculatorActionLog(CalculatorAction.Div, i));
+            try
+            {
+                stack.Push(Result);
+                actionStack.Push(new CalculatorActionLog(CalculatorAction.Div, i));
 
-            Result /= i;
-            GotResult(this, new EventArgs());
+                Result /= i;
+                GotResult(this, new EventArgs());
+            }
+            catch (Exception e)
+            {
+                throw new CalculatorException("Ошибка деления", e, actionStack.ToList());
+            }
         }
 
         public void Div(float i)
         {
-            stack.Push(Result);
-            actionStack.Push(new CalculatorActionLog(CalculatorAction.Div, i));
+            try
+            {
+                stack.Push(Result);
+                actionStack.Push(new CalculatorActionLog(CalculatorAction.Div, i));
 
-            Result /= i;
-            GotResult(this, new EventArgs());
+                Result /= i;
+                GotResult(this, new EventArgs());
+            }
+            catch (Exception e)
+            {
+                throw new CalculatorException("Ошибка деления", e, actionStack.ToList());
+            }
         }
 
         public static float operator /(Calculator c, float val) 
@@ -106,7 +120,7 @@ namespace Lesson6
             }
             catch (Exception e)
             {
-                throw new CalculatorException("Продумайте сообщения", e, c.actionStack.ToList());
+                throw new CalculatorException("Ошибка деления", e, c.actionStack.ToList());
             }
 
             return val;
@@ -115,18 +129,32 @@ namespace Lesson6
         /*--------------Умножение---------------*/
         public void Mul(int i)
         {
-            stack.Push(Result);
-            actionStack.Push(new CalculatorActionLog(CalculatorAction.Mul, i));
-            Result *= i;
-            GotResult(this, new EventArgs());
+            try
+            {
+                stack.Push(Result);
+                actionStack.Push(new CalculatorActionLog(CalculatorAction.Mul, i));
+                Result *= i;
+                GotResult(this, new EventArgs());
+            }
+            catch (Exception e)
+            {
+                throw new CalculatorException("Ошибка умножения", e, actionStack.ToList());
+            }
         }
 
         public void Mul(float i)
         {
-            stack.Push(Result);
-            actionStack.Push(new CalculatorActionLog(CalculatorAction.Mul, i));
-            Result *= i;
-            GotResult(this, new EventArgs());
+            try
+            {
+                stack.Push(Result);
+                actionStack.Push(new CalculatorActionLog(CalculatorAction.Mul, i));
+                Result *= i;
+                GotResult(this, new EventArgs());
+            }
+            catch (Exception e)
+            {
+                throw new CalculatorException("Ошибка умножения", e, actionStack.ToList());
+            }
         }
 
         public static float operator *(Calculator c, float val) 
@@ -140,7 +168,7 @@ namespace Lesson6
             }
             catch (Exception e)
             {
-                throw new CalculatorException("Продумайте сообщения", e, c.actionStack.ToList());
+                throw new CalculatorException("Ошибка умножения", e, c.actionStack.ToList());
             }
 
             return val;
@@ -149,20 +177,34 @@ namespace Lesson6
         /*----Вычитание----------------------------*/
         public void Sub(int i)
         {
-            stack.Push(Result);
-            actionStack.Push(new CalculatorActionLog(CalculatorAction.Sub, i));
+            try
+            {
+                stack.Push(Result);
+                actionStack.Push(new CalculatorActionLog(CalculatorAction.Sub, i));
 
-            Result -= i;
-            GotResult(this, new EventArgs());
+                Result -= i;
+                GotResult(this, new EventArgs());
+            }
+            catch (Exception e)
+            {
+                throw new CalculatorException("Ошибка вычитания", e, actionStack.ToList());
+            }
         }
 
         public void Sub(float i)
         {
-            stack.Push(Result);
-            actionStack.Push(new CalculatorActionLog(CalculatorAction.Sub, i));
+            try
+            {
+                stack.Push(Result);
+                actionStack.Push(new CalculatorActionLog(CalculatorAction.Sub, i));
 
-            Result -= i;
-            GotResult(this, new EventArgs());
+                Result -= i;
+                GotResult(this, new EventArgs());
+            }
+            catch (Exception e)
+            {
+                throw new CalculatorException("Ошибка вычитания", e, actionStack.ToList());
+            }
         }
 
         public static float operator -(Calculator c, float val) 
@@ -176,7 +218,7 @@ namespace Lesson6
             }
             catch (Exception e)
             {
-                throw new CalculatorException("Продумайте сообщения", e, c.actionStack.ToList());
+                throw new CalculatorException("Ошибка вычитания", e, c.actionStack.ToList());
             }
 
             return val;
