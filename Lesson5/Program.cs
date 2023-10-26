@@ -7,7 +7,6 @@
     {
         static void Main(string[] args)
         {
-
             Calculator c = new Calculator();
 
             c.EventResult += C_EventResult;
@@ -54,9 +53,7 @@
 
                  }
             c.EventResult += C_EventResult;
-
         }
-
         private static void C_EventResult(object? sender, EventArgs e)
         {
             Console.WriteLine("Результат: "+((Calculator)sender).result);
