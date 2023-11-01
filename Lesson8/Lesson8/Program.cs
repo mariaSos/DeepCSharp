@@ -32,8 +32,6 @@
             {               
                 using (var reader = new StreamReader(File.Open(file, FileMode.Open)))
                 {
-
-
                     while (reader.Peek() >= 0)
                     {
                         var line = reader.ReadLine();
